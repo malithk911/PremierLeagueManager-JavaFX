@@ -1,0 +1,224 @@
+/*
+ * Name : Malith Kulathilake
+ * IIT number : 2018412
+ * UOW number : w1761910
+ *
+ * I confirm that I understand what plagiarism /
+    collusion / contract cheating is and have read and
+    understood the section on Assessment Offences in the
+    Essential Information for Students. The work that I
+    have submitted is entirely my own. Any work from
+    other authors is duly referenced and acknowledged.
+ */
+
+/* CSS file for FX application */
+
+#menu-Vbox{
+    -fx-background-image: url("startupmenu.jpg");
+}
+
+#menuHeading{
+    -fx-text-fill: #07ffff;
+    -fx-background-color: #000000;
+    -fx-font-weight: bold;
+    -fx-padding: 10;
+    -fx-font-size: 20;
+    -fx-border-color: #07ffff;
+    -fx-border-radius: 25;
+    -fx-border-width: 2;
+    -fx-background-radius: 25;
+    -fx-min-width: 500;
+}
+
+#menuHeading:hover{
+    -fx-border-width: 5;
+}
+
+#tableButton, #matchesButton, #exitMenuButton{
+    -fx-text-fill: #f5f8f8;
+    /*-fx-background-color: #29648a;*/
+    -fx-background-color: linear-gradient(#44799b 0%, #123c69 100%);
+    -fx-font-weight: bold;
+    -fx-padding: 10;
+    -fx-font-size: 15;
+    -fx-border-color: #000000;
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+    -fx-min-width: 250;
+}
+
+#tableButton:hover{
+    -fx-border-width: 5;
+    -fx-border-color: #07ffff;
+    -fx-text-fill: #07ffff;
+}
+
+#matchesButton:hover{
+    -fx-border-width: 5;
+    -fx-border-color: #07ffff;
+    -fx-text-fill: #07ffff;
+}
+
+#exitMenuButton:hover{
+    -fx-border-width: 5;
+    -fx-border-color: #07ffff;
+    -fx-text-fill: #07ffff;
+}
+
+.root{
+    -fx-background-color: #000000;
+    -fx-font-weight: bold;
+    -fx-font-family: Arial;
+    -fx-background-image: url("Black-wallpaper-with-a-football.jpg");
+}
+
+#tableViewHeading, #matchListHeading{
+    -fx-text-fill: #07ffff;
+    -fx-background-color: #29648a;
+    -fx-font-weight: normal;
+    -fx-padding: 10;
+    -fx-font-size: 20;
+    -fx-border-color: #418fc3;
+    -fx-border-width: 5;
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+    -fx-min-width: 500;
+}
+
+#tableViewHeading:hover{
+    -fx-background-color: #000000;
+    -fx-font-weight: bold;
+}
+
+#matchListHeading:hover{
+    -fx-background-color: #000000;
+    -fx-font-weight: bold;
+}
+
+.table-view{
+    -fx-background-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-min-width: 500;
+    -fx-min-height: 300;
+    -fx-border-radius: 50;
+}
+
+.button{
+    -fx-min-width: 120;
+    -fx-min-height: 30;
+    -fx-background-color: linear-gradient(#123c69 0%, #69beb9 100%);
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #418fc3;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+}
+
+.text-field{
+    /*-fx-border-radius: 15;*/
+    /*-fx-background-radius: 15;*/
+    /*-fx-min-width: 200;*/
+}
+
+.button:hover{
+    -fx-background-color: #000000;
+    -fx-text-fill: #07ffff;
+    -fx-border-color: #0d23ba ;
+    -fx-border-width: 3;
+}
+
+.table-view .column-header-background{
+    /*-fx-background-color: linear-gradient(#313791 0%, #69beb9 100%);*/
+    -fx-background-color: #123c69;
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: #418fc3;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.table-view .column-header:hover{
+    -fx-background-color: #000000;
+}
+
+.table-view .table-cell{
+    -fx-alignment: CENTER;
+}
+
+.table-row-cell{
+    -fx-text-fill: white;
+    -fx-background-color: #616161;
+    -fx-alignment: CENTER;
+}
+
+.table-row-cell:odd{
+    -fx-background-color: #005a8a;
+    -fx-alignment: CENTER;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #89dede;
+    -fx-alignment: CENTER;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: #ffff;
+    -fx-alignment: CENTER;
+}
+
+.list-view{
+    -fx-min-width: 500;
+    -fx-min-height: 500;
+    -fx-background-color: transparent;
+}
+
+.list-cell {
+    /*-fx-background-color: linear-gradient(#2e9cca 0%, #29648a 70%);*/
+    -fx-background-color: linear-gradient(#123c69 0%, #29648a 70%);
+    -fx-text-fill: #ffff;
+    -fx-padding: 20;
+    -fx-border-color: #418fc3;
+    -fx-border-width: 2;
+    -fx-border-radius: 35;
+    -fx-background-radius: 35;
+    /*-fx-alignment: center;*/
+}
+
+.list-cell:odd {
+    -fx-background-color: linear-gradient(#a0a0a0 0%, #062828 40%);
+}
+
+.list-cell:selected {
+    -fx-background-color: #89dede;
+    -fx-text-fill: #000000;
+    /*-fx-border-color: #07faff;*/
+}
+
+.list-cell:hover{
+    -fx-background-color: #000000;
+    -fx-text-fill: #07ffff;
+}
+
+#searchDate{
+    -fx-min-height:32;
+    -fx-min-width: 200;
+    -fx-border-color: #000000;
+    -fx-border-width: 4;
+    -fx-border-radius: 15;
+    -fx-background-radius: 25;
+
+}
+
+#searchButton:hover{
+    -fx-border-width: 3;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+}

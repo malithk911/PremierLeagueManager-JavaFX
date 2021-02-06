@@ -1,0 +1,363 @@
+/*
+ * Name : Malith Kulathilake
+ * IIT number : 2018412
+ * UOW number : w1761910
+ *
+ * I confirm that I understand what plagiarism /
+    collusion / contract cheating is and have read and
+    understood the section on Assessment Offences in the
+    Essential Information for Students. The work that I
+    have submitted is entirely my own. Any work from
+    other authors is duly referenced and acknowledged.
+ */
+
+package level5.cw.implementation;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Menu {
+//    protected static PremiereLeagueManager premiereLeagueManager = new PremiereLeagueManager();
+    protected static PremiereLeagueManager premiereLeagueManager = new PremiereLeagueManager();
+    protected static SchoolClubManager schoolManager = new SchoolClubManager();
+    protected static UniClubManager uniManager = new UniClubManager();
+    protected static int premiereLeagueYear;
+
+    /*
+     * TODO : Once a match is created, new matches should be scheduled on a future date unless same date
+     *  TODO : Thorough testing
+     */
+
+    /**
+     * Console Menu
+     */
+    public static void runMenu() throws IOException, ClassNotFoundException {
+
+//        Scanner keyboardInput = new Scanner (System.in);
+//        System.out.println("\n—————————————————————————————————— WELCOME! ——————————————————————————————————");
+//        System.out.println("\nEnter year of league : ");
+//        int leagueYear = keyboardInput.nextInt();
+
+        boolean exit = false;
+        while(!exit){
+            try{
+System.out.println("\n—————————————————————————————————— PREMIERE LEAGUE ——————————————————————————————————");
+
+//                System.out.println("\nEnter year of league : ");
+//                int leagueYear = keyboardInput.nextInt();
+
+//                Date leagueDate = new Date(leagueYear);
+//                premiereLeagueManager  = new PremiereLeagueManager(leagueDate);
+
+                System.out.println("\n-- Choose an option -- \n");
+                System.out.println("• Press 1 to add league club.");
+                System.out.println("• Press 2 delete league club.");
+                System.out.println("• Press 3 view statistics of league club.");
+                System.out.println("• Press 4 to display premiere league table.");
+                System.out.println("• Press 5 to a played match to league.");
+                System.out.println("• Press 6 to add school club.");
+                System.out.println("• Press 7 to add university club.");
+                System.out.println("• Press 8 to save to file.");
+                System.out.println("• Press 9 to load from file.");
+                System.out.println("• Press 10 to open GUI.");
+                System.out.println("• Press 11 to quit.");
+
+                Scanner keyboardInput = new Scanner (System.in);
+                int choice = keyboardInput.nextInt();
+
+                switch(choice){
+                    case 1: // get club details
+    System.out.println("\n—————————————————————————————————— Add a club to league ——————————————————————————————————");
+
+                        System.out.println("\nEnter club name : ");
+                        keyboardInput.nextLine();
+                        String clubName = keyboardInput.nextLine().toLowerCase();
+
+                        if(!clubName.isEmpty()){
+                            System.out.println("Enter club country : ");
+                            String clubCountry = keyboardInput.nextLine().toLowerCase();
+
+                            if(!clubCountry.isEmpty()){
+                                System.out.println("Enter number of members : ");
+//                      validateInput("\nEnter number of members : ");
+//                      TODO : while (!keyboardInput.hasNextInt()){
+//                            System.out.println("Invalid input");
+//                            System.out.println("Enter number of members");
+//                            keyboardInput.next();
+//                          }
+                                int clubMembers = keyboardInput.nextInt();
+
+                                System.out.println("Enter number of wins : ");
+//                        validateInput("\nEnter number of wins : ");
+                                int clubWins = keyboardInput.nextInt();
+
+                                System.out.println("Enter number of draws : ");
+//                        validateInput("\nEnter number of draws : ");
+                                int clubDraws = keyboardInput.nextInt();
+
+                                System.out.println("Enter number of defeats : ");
+//                        validateInput("\nEnter number of defeats :");
+                                int clubDefeats = keyboardInput.nextInt();
+
+                                System.out.println("Enter number of goals scored : ");
+//                        validateInput("\nEnter number of goals scored :");
+                                int clubGoalsScored = keyboardInput.nextInt();
+
+                                System.out.println("Enter number of goals conceded : ");
+//                        validateInput("\nEnter number of goals conceded :");
+                                int clubGoalsConceded = keyboardInput.nextInt();
+
+                                System.out.println("Enter number of matches : ");
+//                        validateInput("\nEnter number of matches :");
+                                int clubMatches = keyboardInput.nextInt();
+
+                                if(clubMembers >= 0 && clubWins >= 0 & clubDraws >= 0 && clubDefeats >= 0 &&
+                                    clubGoalsScored >= 0 && clubGoalsConceded >= 0 && clubMatches >= 0) {
+
+                                    FootballClub newFootballClub = new FootballClub(clubName, clubCountry, clubMembers,
+                                    clubWins, clubDraws, clubDefeats, clubGoalsScored, clubGoalsConceded, clubMatches);
+
+                                    premiereLeagueManager.add(newFootballClub); // add a football club to league
+                                } else {
+                                    System.out.println("\nError : Cannot have negative values!");
+                                }
+                            } else {
+                                System.out.println("\nError: Must enter club country!");
+                                exit = true;
+                                runMenu();
+                            }
+                        } else {
+                            System.out.println("\nError: Must enter club name!");
+                            exit = true;
+                            runMenu();
+                        }
+
+                        break;
+                    case 2:
+System.out.println("\n—————————————————————————————————— Delete a club from league ——————————————————————————————————");
+                        System.out.println("\nEnter club name to delete : ");
+                        keyboardInput.nextLine();
+                        String deleteClubName = keyboardInput.nextLine().toLowerCase();
+
+                        premiereLeagueManager.delete(deleteClubName); // delete a football club from league
+
+                        break;
+                    case 3:
+System.out.println("\n—————————————————————————————————— View club statistics ——————————————————————————————————");
+                        System.out.println("\nEnter club name to view statistics : ");
+                        keyboardInput.nextLine();
+                        String viewClubStats = keyboardInput.nextLine().toLowerCase();
+
+                        premiereLeagueManager.displayStats(viewClubStats); // view stats of a club
+
+                        break;
+                    case 4:
+                        premiereLeagueManager.displayTable(); // display premiere league table
+
+                        break;
+                    case 5:
+System.out.println("\n—————————————————————————————————— Add a played match ——————————————————————————————————");
+                        System.out.println("\n---- Premiere League " + premiereLeagueManager.getLeagueYear() + " ----");
+
+//                        if(premiereLeagueManager.leagueYear == Integer.parseInt(null)){
+//                            System.out.println("\nEnter year of league : ");
+//                            premiereLeagueYear = keyboardInput.nextInt();
+//                        }
+
+
+//                        System.out.println("\nEnter year of league : ");
+//                        premiereLeagueYear = keyboardInput.nextInt();
+//
+//                        if (premiereLeagueManager.getLeagueYear() == premiereLeagueYear){
+                            Date dateOfMatch = new Date();
+                            System.out.println("\nEnter date of match (DD.MM.YYYY) : ");
+                            String userInputDate = keyboardInput.next();
+
+                            String [] arr = userInputDate.split("\\.", 3);
+
+                            if((Integer.parseInt(arr[0]) > 0 && Integer.parseInt(arr[0]) <= 31) && (Integer.parseInt(arr[1])
+                                    > 0 && Integer.parseInt(arr[1]) <= 12) && (Integer.parseInt(arr[2]) == premiereLeagueManager.getLeagueYear())){
+                                dateOfMatch.setDay(Integer.parseInt(arr[0]));
+                                dateOfMatch.setMonth(Integer.parseInt(arr[1]));
+                                dateOfMatch.setYear(Integer.parseInt(arr[2]));
+                            } else {
+                                System.out.println("\nError: invalid date. Enter a valid date");
+                                break;
+                            }
+                            System.out.println(dateOfMatch.toString());
+
+                            System.out.println("\nEnter home club name : ");
+                            keyboardInput.nextLine();
+                            String homeClubName = keyboardInput.nextLine().toLowerCase();
+
+                            System.out.println("Enter visiting club name : ");
+                            String visitingClubName = keyboardInput.nextLine().toLowerCase();
+
+                            System.out.println("Enter home club score : ");
+                            int homeClubScore = keyboardInput.nextInt();
+
+                            System.out.println("Enter visiting club score : ");
+                            int visitingClubScore = keyboardInput.nextInt();
+
+                            Match match = new Match(dateOfMatch, homeClubName, visitingClubName, homeClubScore,
+                                    visitingClubScore);
+
+//                            premiereLeagueManager.setLeagueYear(premiereLeagueYear);
+                            premiereLeagueManager.addPlayedMatch(match);
+
+
+//                        } else {
+//                            System.out.println("Error : Enter valid year");
+//                        }
+/*-------------------------------------*/
+                        // adding a played match
+//                        Date dateOfMatch = new Date();
+//                        System.out.println("\nEnter date of match (DD.MM.YYYY) : ");
+//                        String userInputDate = keyboardInput.next();
+
+//                        System.out.println("\nEnter year of league : ");
+//                        int leagueYear = keyboardInput.nextInt();
+
+
+
+//                        premiereLeagueManager  = new PremiereLeagueManager(premiereLeagueYear);
+//                        premiereLeagueManager.setLeagueYear(premiereLeagueYear);
+
+//                        String [] arr = userInputDate.split("\\.", 3);
+
+
+
+
+
+                        // validating match date by checking if day and month are valid
+//                        if((Integer.parseInt(arr[0]) > 0 && Integer.parseInt(arr[0]) <= 31) && (Integer.parseInt(arr[1])
+//                                > 0 && Integer.parseInt(arr[1]) <= 12) && (Integer.parseInt(arr[2]) >= premiereLeagueManager.getLeagueYear() &&
+//                                Integer.parseInt(arr[2]) <= (premiereLeagueManager.getLeagueYear() + 1))){
+//                            dateOfMatch.setDay(Integer.parseInt(arr[0]));
+//                            dateOfMatch.setMonth(Integer.parseInt(arr[1]));
+//                            dateOfMatch.setYear(Integer.parseInt(arr[2]));
+//                        } else {
+//                            System.out.println("\nError: invalid date. Enter a valid date");
+//                            break;
+//                        }
+//                        System.out.println(dateOfMatch.toString());
+//
+//                        System.out.println("\nEnter home club name : ");
+//                        String homeClubName = keyboardInput.next();
+//
+//                        System.out.println("Enter visiting club name : ");
+//                        String visitingClubName = keyboardInput.next();
+//
+//                        System.out.println("Enter home club score : ");
+//                        int homeClubScore = keyboardInput.nextInt();
+//
+//                        System.out.println("Enter visiting club score : ");
+//                        int visitingClubScore = keyboardInput.nextInt();
+//
+//                        Match match = new Match(dateOfMatch, homeClubName, visitingClubName, homeClubScore,
+//                                visitingClubScore);
+//
+//                        premiereLeagueManager.addPlayedMatch(match);
+
+                        break;
+                    case 6:
+System.out.println("\n—————————————————————————————————— Add school club ——————————————————————————————————");
+                        System.out.println("\nEnter school club name : ");
+                        String schoolClubName = keyboardInput.next();
+
+                        System.out.println("Enter school club location : ");
+                        String schoolClubLocation = keyboardInput.next();
+
+                        System.out.println("Enter number of members : ");
+                        int schoolClubMembers = keyboardInput.nextInt();
+
+                        System.out.println("Enter number of wins : ");
+                        int schoolClubWins = keyboardInput.nextInt();
+
+                        System.out.println("Enter number of draws : ");
+                        int schoolClubDraws = keyboardInput.nextInt();
+
+                        System.out.println("Enter number of defeats : ");
+                        int schoolClubDefeats = keyboardInput.nextInt();
+
+                        SportsClub schoolClub = new SportsClub(schoolClubName, schoolClubLocation,
+                                schoolClubMembers, schoolClubWins, schoolClubDraws, schoolClubDefeats);
+                        schoolManager.add(schoolClub);
+
+                        break;
+                    case 7:
+System.out.println("\n—————————————————————————————————— Add university club ——————————————————————————————————");
+                        System.out.println("\nEnter university club name : ");
+                        String uniClubName = keyboardInput.next();
+
+                        System.out.println("Enter university club location : ");
+                        String uniClubLocation = keyboardInput.next();
+
+                        System.out.println("Enter number of members : ");
+                        int uniClubMembers = keyboardInput.nextInt();
+
+                        System.out.println("Enter number of wins : ");
+                        int uniClubWins = keyboardInput.nextInt();
+
+                        System.out.println("Enter number of draws : ");
+                        int uniClubDraws = keyboardInput.nextInt();
+
+                        System.out.println("Enter number of defeats : ");
+                        int uniClubDefeats = keyboardInput.nextInt();
+
+                        SportsClub uniClub = new SportsClub(uniClubName, uniClubLocation,
+                                uniClubMembers, uniClubWins, uniClubDraws, uniClubDefeats);
+                        uniManager.add(uniClub);
+
+                        break;
+                    case 8:
+                        premiereLeagueManager.saveToFile(); // save league details to file
+//                        schoolManager.saveToFile(); // save school club details to file
+//                        uniManager.saveToFile(); // save university club details to file
+
+                        break;
+                    case 9:
+                        premiereLeagueManager.loadFromFile(); // load league details from file
+//                        if(!LeagueManager.LEAGUE_MATCHES.isEmpty()){
+//                            premiereLeagueManager.setLeagueYear(LeagueManager.LEAGUE_MATCHES.get(0).getDate().getYear());
+//                        } else {
+//                            premiereLeagueManager.setLeagueYear(Main.plYear);
+//                        }
+
+//                        schoolManager.loadFromFile(); // load school club details from file
+//                        uniManager.loadFromFile(); // load university club details from file
+
+                        break;
+                    case 10:
+                        exit = true;
+                        Main.window.setScene(Main.menuScene);
+                        Main.window.show();
+
+                        break;
+                    case 11:
+                        exit = true;
+                        System.out.println("\nProgram exiting....");
+                        System.exit(0);
+                        break;
+                }
+            }
+            catch (Exception e){
+                System.out.println("\nError! Enter valid input.");
+            }
+        }
+    }
+
+//    /**
+//     *
+//     * @param prompt prompt for user input
+//     */
+//    public static void validateInput(String prompt){
+//        Scanner keyboardInput2 = new Scanner (System.in);
+//        // prompt for user input until a valid value is entered
+//        while (!keyboardInput2.hasNextInt()){
+//                            System.out.println("Invalid input"); // indicate if invalid value
+//                            System.out.println(prompt); // prompt again
+//                            keyboardInput2.next();
+//                        }
+//    }
+}
